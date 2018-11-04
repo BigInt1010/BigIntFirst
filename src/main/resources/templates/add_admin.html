@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="fragments/headersourcelink :: head"></th:block>
+    <!-- DataTables -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script th:src="@{/js/chart.js}"></script>
+    <script th:src="@{/js/3dchart.js}"></script>
+    <link rel="stylesheet" th:href="@{/plugins/datatables/dataTables.bootstrap.css}">
+    <title>Admin | Users</title>
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header th:include="fragments/header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside th:include="fragments/sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Admin
+                <small>Add Admin</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a th:href="@{#}"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a th:href="@{#}">Admin</a></li>
+                <li class="active"> Add</li>
+            </ol>
+        </section>
+
+
+        <section class="content">
+
+            <div class="row">
+                <!-- left column -->
+                <!--<div class="col-md-6">-->
+                <!--&lt;!&ndash; general form elements &ndash;&gt;-->
+                <!--<div class="box box-success">-->
+                <!--<div class="box-header with-border">-->
+                <!--<h3 class="box-title">Add new Child Category</h3>-->
+                <!--</div>-->
+                <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+                <!--&lt;!&ndash; form start &ndash;&gt;-->
+                <!--<form role="form" th:action="@{/Admin/categories/save}" th:object="${categories}" method="post">-->
+                <!--<div class="box-body">-->
+                <!--<input type="hidden" th:field="*{id}">-->
+                <!--<div class="form-group col-sm-6">-->
+                <!--<select class="form-control" name="category">-->
+                <!--<option th:each="listOfCategories : ${listOfCategories}"-->
+                <!--th:value="${listOfCategories.name}"-->
+                <!--th:text="${listOfCategories.name}"-->
+                <!--&gt;Options</option>-->
+
+                <!--</select>-->
+                <!--</div>-->
+                <!--<div class="form-group col-sm-12">-->
+                <!--<label>Name</label> -->
+                <!--<input type="text" class="form-control" placeholder="Enter category" th:field="*{name}">-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="box-footer">-->
+                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                <!--</div>-->
+                <!--</form>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="box box-success">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Add new Admin</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+
+
+                        <form role="form" th:action="@{#}"  method="post">
+                            <div class="box-body">
+                                <input type="hidden">
+
+                                <div class="form-group col-sm-12">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter First Name" >
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control" placeholder="Enter Last Name" >
+                                </div>
+                                <div class="file btn btn-lg form-group col-sm-12">
+                                    <label>
+
+                                        Add Photo
+                                        <input type="file" name="file" id="imges"  />
+
+                                        <!--input type="file" name="images" required  accept="images/jpeg" -->
+                                    </label>
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Enter Email" >
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="Enter Password" >
+                                </div>
+                                <div class="form-group col-sm-12">
+                                    <label>Group</label>
+                                    <select class="form-control" name="category">
+                                        <option value="super administrator">Super Administrator</option>
+                                        <option value="Dispatchur Admin">Dispatchur Admin</option>
+                                        <option value="Accounts">Accounts</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+    </div>
+
+    <th:block th:include="fragments/footer"></th:block>
+</div>
+<th:block th:include="fragments/headersourcelink :: footer"></th:block>
+<!-- DataTables -->
+<script th:src="@{/plugins/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/datatables/dataTables.bootstrap.min.js}"></script>
+<script>
+    $(function () {
+        $('#example1').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true
+        });
+    });
+</script>
+</body>
+</html>
